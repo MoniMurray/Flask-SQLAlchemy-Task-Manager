@@ -1,13 +1,13 @@
 from taskmanager import db
 
 
-class Categories(db.Model):
+class Category(db.Model):
     # creating table, represented by class-based models using SQLAlchemy ORM
     id = db.Column(db.Integer, primary_key=True)
     category_name = db.Column(db.String(25), unique=True, nullable=False)
     tasks = db.relationship(
         "Task", 
-        backref="categories", 
+        backref="category", 
         cascade="all, delete",
         lazy=True
     )
@@ -25,7 +25,7 @@ class Task(db.Model):
     due_date = db.Column(db.Date, nullable=False)
     category_id = db.Column(
         db.Integer,
-        db.ForeignKey("categories.id", ondelete="CASCADE"),
+        db.ForeignKey("category.id", ondelete="CASCADE"),
         nullable=False
     )
 
