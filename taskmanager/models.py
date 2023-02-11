@@ -7,7 +7,7 @@ class Categories(db.Model):
     category_name = db.Column(db.String(25), unique=True, nullable=False)
     tasks = db.relationship(
         "Task", 
-        backref="category", 
+        backref="categories", 
         cascade="all, delete",
         lazy=True
     )
@@ -16,7 +16,7 @@ class Categories(db.Model):
         return self.category_name
 
 
-class Tasks(db.Model):
+class Task(db.Model):
     # creating table, represented by class-based models using SQLAlchemy ORM
     id = db.Column(db.Integer, primary_key=True)
     task_name = db.Column(db.String(50), unique=True, nullable=False)
@@ -25,7 +25,7 @@ class Tasks(db.Model):
     due_date = db.Column(db.Date, nullable=False)
     category_id = db.Column(
         db.Integer,
-        db.ForeignKey("category.id", ondelete="CASCADE"),
+        db.ForeignKey("categories.id", ondelete="CASCADE"),
         nullable=False
     )
 
