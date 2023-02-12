@@ -18,4 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
   let selects = document.querySelectorAll('select');
   M.FormSelect.init(selects);
 
+  // collapsible code for viewing tasks, taken from materialize
+
+  let collapsibles = document.querySelectorAll('.collapsible');
+  M.Collapsible.init(collapsibles);
+
 
