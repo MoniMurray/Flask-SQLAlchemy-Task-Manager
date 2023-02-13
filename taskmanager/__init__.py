@@ -2,7 +2,7 @@ import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 if os.path.exists("env.py"):
-    import env   # noqa
+    import env   
 
 
 # create an instance of the imported Flask() class, and store it in a
@@ -24,4 +24,4 @@ db = SQLAlchemy(app)
 
 # finally, from our taskmanager package, we will import a file called 'routes'
 
-from taskmanager import routes   # noqa
+from taskmanager import routes
